@@ -1,0 +1,179 @@
+Selection:    83366, 78310, 80497
+after change
+Selection:    69384, 65939, (after 50) 70998
+
+
+Selection:    26740
+Mutation:     10921
+Draw:         3321
+Generation:   107832
+
+Selection:    64107
+Mutation:     2518
+Draw:         3177
+Generation:   137267
+Framerate:    7.28507
+
+Selection:    26994
+Mutation:     11078
+Draw:         3308
+Generation:   107269
+Framerate:    9.32236
+
+Fitness:      2
+Selection:    27182
+Mutation:     11250
+Draw:         3663
+Generation:   71731
+Framerate:    13.9408
+
+Fitness:      2
+Selection:    24949
+Mutation:     13469
+Draw:         3411
+Generation:   70368
+Framerate:    14.2109
+
+Fitness:      68504.4
+Selection:    25575.3
+Mutation:     14583.3
+Fitness pp:   6.85044
+Selection pp: 2.55753
+Mutation pp:  1.45833
+Draw:         3682.59
+Generation:   116885
+Framerate:    8.55543
+
+Fitness:      367532
+Selection:    365584
+Mutation:     39253.8
+Fitness pp:   7.35063
+Selection pp: 7.31168
+Mutation pp:  0.785076
+Draw:         3710.72
+Generation:   782792
+Framerate:    1.27748
+
+Fitness:      366209
+Selection:    367935
+Mutation:     40280
+Fitness pp:   7.32417
+Selection pp: 7.3587
+Mutation pp:  0.8056
+Draw:         3743.03
+Generation:   784893
+Framerate:    1.27406
+
+Fitness:      97267.2
+Selection:    368044
+Mutation:     41444
+Fitness pp:   1.94534
+Selection pp: 7.36088
+Mutation pp:  0.828881
+Draw:         3831.96
+Generation:   516796
+Framerate:    1.935
+
+Fitness:      97722.7
+Selection:    377322
+Mutation:     38783.1
+Fitness pp:   1.95445
+Selection pp: 7.54643
+Mutation pp:  0.775662
+Draw:         10.34
+Generation:   520728
+Framerate:    1.92039
+
+Fitness:      84649.1
+Selection:    336882
+Mutation:     0
+Fitness pp:   1.69298
+Selection pp: 6.73764
+Mutation pp:  0
+Draw:         84.544
+Generation:   461422
+Framerate:    2.16721
+
+Fitness:      81263.5
+Selection:    344492
+Mutation:     14524.5
+Fitness pp:   1.62527
+Selection pp: 6.88983
+Mutation pp:  0.290489
+Draw:         89.928
+Generation:   445128
+Framerate:    2.24654
+
+// new method
+
+Fitness:      76446
+Selection:    342941
+Mutation:     18581.6
+Fitness pp:   1.52892
+Selection pp: 6.85883
+Mutation pp:  0.371632
+Draw:         99.19
+Generation:   438965
+Framerate:    2.27809
+{
+	Fitness:      107142
+	Selection:    346198
+	Mutation:     19696.1
+	Fitness pp:   2.14284
+	Selection pp: 6.92397
+	Mutation pp:  0.393922
+	Draw:         145.102
+	Generation:   474080
+	Framerate:    2.10935
+
+	Fitness:      108694
+	Selection:    347308
+	Mutation:     19707.9
+	Fitness pp:   2.17389
+	Selection pp: 6.94616
+	Mutation pp:  0.394158
+	Draw:         104.132
+	Generation:   476797
+	Framerate:    2.09733
+
+	Fitness:      124599
+	Selection:    351812
+	Mutation:     18681.9
+	Fitness pp:   2.49197
+	Selection pp: 7.03624
+	Mutation pp:  0.373637
+	Draw:         139.288
+	Generation:   496097
+	Framerate:    2.01574
+}
+Fitness:      77232.5
+Selection:    344433
+Mutation:     19341.5
+Fitness pp:   1.54465
+Selection pp: 6.88867
+Mutation pp:  0.386829
+Draw:         99.364
+Generation:   441982
+Framerate:    2.26254
+
+{ 100.000 1000 seq50 10%
+	Fitness:      137666
+	Selection:    1.21104e+06
+	Mutation:     32254
+	Fitness pp:   1.37666
+	Selection pp: 12.1104
+	Mutation pp:  0.32254
+	Draw:         78.736
+	Generation:   1.3826e+06
+	Framerate:    0.723275
+} ~23,04333333 min
+
+Fitness:      72912.1
+Selection:    343919
+Mutation:     20793.1
+Fitness pp:   1.45824
+Selection pp: 6.87839
+Mutation pp:  0.415863
+Draw:         106.984
+Generation:   438657
+Framerate:    2.27968

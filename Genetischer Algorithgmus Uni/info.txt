@@ -1,0 +1,94 @@
+10.000
+s: 4
+m: 3
+t = 10 = 1
+1000
+s: 0,5
+m: 0,4
+t = 10
+
+s: 0,4
+m: 0,3
+t = 1
+
+seq50
+gen1
+pop1000
+t1
+s618950
+m332512
+
+
+239474
+245867
+
+243702
+debug
+seq50, pop10000, gen10 
+
+no threads
+Fitness:      5867
+Selection:    1955566
+Mutation:     29323
+Draw:         8967
+Neighbours:   472
+Intersection: 5387
+
+1 thread (gen1)
+Fitness:      1289
+Selection:    6368104
+Mutation:     7125000
+Draw:         18907
+Neighbours:   204
+Intersection: 1083
+
+10 thread (gen1)
+Fitness:      1277
+Selection:    10141349
+Mutation:     7239060
+Draw:         18340
+Neighbours:   202
+Intersection: 1073
+
+release
+seq50, pop10000, gen1
+
+no threads
+Fitness:      156
+Selection:    607485
+Mutation:     6373
+Draw:         18932
+Neighbours:   106
+Intersection: 49
+
+1 thread
+Fitness:      159
+Selection:    1079881
+Mutation:     1011648
+Draw:         20640
+Neighbours:   108
+Intersection: 50
+
+10 thread 
+Fitness:      155
+Selection:    1041962
+Mutation:     964971
+Draw:         15366
+Neighbours:   105
+Intersection: 49
+
+seq50, pop10000, gen100
+Fitness:      593
+Selection:    262444
+Mutation:     23516
+Draw:         4963
+Neighbours:   269
+Intersection: 272
+
+seq50
+pops 10    100   1000 10000
+time 15544 17064 9411 9177
+
+seq20
+pops 10    100   1000 10000
+time 15622 13839 9652 9266
