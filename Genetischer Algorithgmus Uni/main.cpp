@@ -177,7 +177,7 @@ int main ( int argc, char* argv[] )
 	output->saveAsPng ( generation -1 );
 
 	delete output;
-	std::string filepath{ "Logs/" };
+	std::string filepath{ "TSV Output/" };
 	filepath += "logSEQ" + std::to_string ( SEQUENCE.size() ) + 
 		"Pops" + std::to_string ( POPULATION ) + 
 		"Gen" + std::to_string ( generation ) + 
