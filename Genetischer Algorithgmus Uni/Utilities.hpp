@@ -11,9 +11,9 @@ class Faltung;
 
 extern void threadFitness ( std::vector<std::shared_ptr<Faltung>>& parent );
 
-extern void fitness			( std::shared_ptr<Faltung>& faltung );
-extern int neighbours		( std::shared_ptr<Faltung>& faltung );
-extern int intersections	( std::shared_ptr<Faltung>& faltung );
+extern void fitness			( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords );
+extern int neighbours		( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords  );
+extern int intersections	( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords  );
 
 
 // returns a vector with the selected Faltungen

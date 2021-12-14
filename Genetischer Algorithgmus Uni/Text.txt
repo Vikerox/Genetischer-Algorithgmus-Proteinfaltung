@@ -177,3 +177,105 @@ Mutation pp:  0.415863
 Draw:         106.984
 Generation:   438657
 Framerate:    2.27968
+
+Fitness:      70279.9
+Selection:    337088
+Mutation:     19540.5
+Fitness pp:   1.4056
+Selection pp: 6.74176
+Mutation pp:  0.390809
+Draw:         102.848
+Generation:   427890
+Framerate:    2.33705
+
+Fitness:      72131
+Selection:    350202
+Mutation:     18891
+Fitness pp:   1.44262
+Selection pp: 7.00404
+Mutation pp:  0.37782
+Draw:         99.274
+Generation:   442203
+Framerate:    2.26141
+
+Fitness:      77513.3
+Selection:    351097
+Mutation:     19354.6
+Fitness pp:   1.55027
+Selection pp: 7.02195
+Mutation pp:  0.387092
+Draw:         103.06
+Generation:   448942
+Framerate:    2.22746
+
+Fitness:      71963.7
+Selection:    351319
+Mutation:     19140.2
+Fitness pp:   1.43927
+Selection pp: 7.02639
+Mutation pp:  0.382804
+Draw:         102.884
+Generation:   443439
+Framerate:    2.2551
+
+Fitness:      67476.4
+Selection:    342975
+Mutation:     16553.4
+Fitness pp:   1.34953
+Selection pp: 6.8595
+Mutation pp:  0.331068
+Draw:         86.058
+Generation:   427808
+Framerate:    2.3375
+
+//
+Fitness:      67765.5
+Selection:    343343
+Mutation:     16380.6
+Fitness pp:   1.35531
+Selection pp: 6.86687
+Mutation pp:  0.327611
+Draw:         87.794
+Generation:   428288
+Framerate:    2.33488
+
+Fitness:      66211.7
+Selection:    343877
+Mutation:     16825.4
+Fitness pp:   1.32423
+Selection pp: 6.87754
+Mutation pp:  0.336509
+Draw:         87.908
+Generation:   427727
+Framerate:    2.33794
+
+Fitness:      66557.8
+Selection:    344404
+Mutation:     17172.9
+Fitness pp:   1.33116
+Selection pp: 6.88808
+Mutation pp:  0.343459
+Draw:         88.11
+Generation:   428937
+Framerate:    2.33135
+
+Fitness:      69381.1
+Selection:    351635
+Mutation:     17587.1
+Fitness pp:   1.38762
+Selection pp: 7.0327
+Mutation pp:  0.351743
+Draw:         95.904
+Generation:   439506
+Framerate:    2.27528
+
+Fitness:      70872.1
+Selection:    355132
+Mutation:     18232
+Fitness pp:   1.41744
+Selection pp: 7.10263
+Mutation pp:  0.36464
+Draw:         93.162
+Generation:   445147
+Framerate:    2.24645
+// 2.30518

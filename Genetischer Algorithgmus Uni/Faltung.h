@@ -30,7 +30,7 @@ public:
 
 	std::string directionToString ( );
 
-	void generateCoordinates ( );
+	std::vector<Coord>& generateCoordinates ( );
 
 	void addIntersection ( Coord inter ) { m_intesect.push_back ( inter ); }
 	void addNeighbour ( std::pair<Coord, Coord> neigh ) { m_neighbours.push_back ( neigh ); }

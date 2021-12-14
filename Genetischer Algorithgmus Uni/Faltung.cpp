@@ -28,7 +28,7 @@ void Faltung::randomize ( )
 
 Faltung::Faltung ( bool random )
 {
-	for (int i = 0; i < SEQUENCE.size ( ) - 1; ++i) {
+	for (int i = 0; i < constant::SEQUENCE.size ( ) - 1; ++i) {
 		m_direction.push_back ( 0 );
 	}
 	if (random)
@@ -51,7 +51,7 @@ std::string Faltung::directionToString ( )
 	return ss.str ( );
 }
 
-void Faltung::generateCoordinates (  )
+std::vector<Coord>& Faltung::generateCoordinates (  )
 {
 	m_coordinates.push_back ( Coord( 0,0 ) );
 	unsigned int dir = 1;
@@ -97,6 +97,7 @@ void Faltung::generateCoordinates (  )
 
 		m_coordinates.push_back ( temp );
 	}
+	return m_coordinates;
 }
 
 void Faltung::clear ( )

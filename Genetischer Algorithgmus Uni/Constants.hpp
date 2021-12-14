@@ -8,28 +8,26 @@ struct Coord
 	Coord ( int a, int b ) : x ( a ), y ( b ) { }
 };
 
-const struct SEQUENCES
+#define SEQ20 { true,false,true,false,false,true,true,false,true,false,false,true,false,true,true,false,false,true,false,true };
+#define SEQ24 { true,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,true };
+#define SEQ25 { false,false,true,false,false,true,true,false,false,false,false,true,true,false,false,false,false,true,true,false,false,false,false,true,true };
+#define SEQ36 { false,false,false,true,true,false,false,true,true,false,false,false,false,false,true,true,true,true,true,true,true,false,false,true,true,false,false,false,false,true,true,false,false,true,false,false };
+#define SEQ48 { false,false,true,false,false,true,true,false,false,true,true,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,true,true,false,false,true,true,false,false,true,false,false,true,true,true,true,true };
+#define SEQ50 { true,true,false,true,false,true,false,true,false,true,true,true,true,false,true,false,false,false,true,false,false,false,true,false,false,false,false,true,false,false,false,true,false,false,false,true,false,true,true,true,true,false,true,false,true,false,true,false,true,true };
+
+
+namespace constant
 {
-	const std::vector<bool> SEQ20 = { true,false,true,false,false,true,true,false,true,false,false,true,false,true,true,false,false,true,false,true };
-	const std::vector<bool> SEQ24 = { true,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,false,false,true,true };
-	const std::vector<bool> SEQ25 = { false,false,true,false,false,true,true,false,false,false,false,true,true,false,false,false,false,true,true,false,false,false,false,true,true };
-	const std::vector<bool> SEQ36 = { false,false,false,true,true,false,false,true,true,false,false,false,false,false,true,true,true,true,true,true,true,false,false,true,true,false,false,false,false,true,true,false,false,true,false,false };
-	const std::vector<bool> SEQ48 = { false,false,true,false,false,true,true,false,false,true,true,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,true,true,false,false,true,true,false,false,true,false,false,true,true,true,true,true };
-	const std::vector<bool> SEQ50 = { true,true,false,true,false,true,false,true,false,true,true,true,true,false,true,false,false,false,true,false,false,false,true,false,false,false,false,true,false,false,false,true,false,false,false,true,false,true,true,true,true,false,true,false,true,false,true,false,true,true };
-}seq;
+	inline constexpr unsigned int		POPULATION = 50000;
+	inline constexpr unsigned int		MAX_GENERATION = 500;
+	inline constexpr float				MUTATION_RATE = 0.01f;
+	const std::vector<bool>				SEQUENCE = SEQ50;
+		
+	inline constexpr unsigned int THREAD_COUNT = 10;
 
 
+	// For splitting the pops on the threads
+	inline constexpr int POPS_PER_THREAD = POPULATION / THREAD_COUNT;
 
-
-const unsigned int		POPULATION		= 50000;
-const unsigned int		MAX_GENERATION	= 500;
-const float				MUTATION_RATE	= 0.01f;
-const std::vector<bool>	SEQUENCE		= seq.SEQ50;
-
-const unsigned int THREAD_COUNT = 10;
-
-
-// For splitting the pops on the threads
-const int POPS_PER_THREAD = POPULATION / THREAD_COUNT;
-
-static_assert(POPULATION % THREAD_COUNT == 0, "uneven Population to thread count ratio");
+	static_assert(POPULATION % THREAD_COUNT == 0, "Uneven Population to thread count ratio");
+}

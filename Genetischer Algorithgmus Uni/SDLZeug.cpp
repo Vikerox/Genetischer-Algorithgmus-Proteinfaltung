@@ -101,7 +101,7 @@ void DrawWithThread::draw ( Faltung& faltung, const std::vector<std::string>& da
 			it.y * SCALE + sdlInfo->m_screenHeight / 2,
 			SIZE_RECT,
 			SIZE_RECT };
-		if (SEQUENCE[i])
+		if (constant::SEQUENCE[i])
 			SDL_RenderFillRect ( sdlInfo->m_renderer, rect );
 		else
 			SDL_RenderDrawRect ( sdlInfo->m_renderer, rect );

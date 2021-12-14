@@ -10,18 +10,16 @@ void threadFitness ( std::vector<std::shared_ptr<Faltung>>& pops )
 {
 	for (auto& it : pops)
 	{
-		it->generateCoordinates ( );
-		fitness ( it );
+		auto& coordinates = it->generateCoordinates ( );
+		fitness ( it, coordinates );
 	}
 }
 
-void fitness ( std::shared_ptr<Faltung>& faltung )
+void fitness ( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords )
 {
-	static const int hps = std::count ( SEQUENCE.begin ( ), SEQUENCE.end ( ), true );
+	static const int hps = std::count ( constant::SEQUENCE.begin ( ), constant::SEQUENCE.end ( ), true );
 
-	int c = intersections ( faltung );
-
-	int n = neighbours ( faltung );
+	int neigh{ neighbours ( faltung, coords ) }, inter{ intersections ( faltung, coords ) };
 
 	// variables mainly for code readability
 	double x, z;
@@ -38,46 +36,47 @@ void fitness ( std::shared_ptr<Faltung>& faltung )
 	// faltung->setFitness ( 1 / (x + y) );
 
 	// v2
-	x = ((n == 0) ? 1 : n);
+	x = ((neigh == 0) ? 1 : neigh);
 	//y = ((c == 0) ? 1 : c);
 	z = hps * 18.0f / hps;
-	faltung->setFitness ( 1 / (z / x + c) );
+	faltung->setFitness ( 1 / (z / x + inter) );
 }
 
-int neighbours ( std::shared_ptr<Faltung>& faltung )
+int neighbours ( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords )
 {
-	auto field = faltung->getCoordinates ( );
+	int numNeigh{ 0 };
 
-	for (int i = 0; i < SEQUENCE.size ( ); ++i)
+	for (int i = 0; i < constant::SEQUENCE.size ( ); ++i)
 	{
-		for (int j = i + 2; j < SEQUENCE.size ( ); ++j)
+		for (int j = i + 2; j < constant::SEQUENCE.size ( ); ++j)
 		{
-			if(SEQUENCE[i] == SEQUENCE[j] && SEQUENCE[i] )
+			if(constant::SEQUENCE[i] == constant::SEQUENCE[j] && constant::SEQUENCE[i] )
 			{
-				if (field[i].x == field[j].x + 1 && field[i].y == field[j].y)	faltung->addNeighbour ( std::make_pair ( field[i], field[j] ) );
-				else if (field[i].x == field[j].x - 1 && field[i].y == field[j].y)	faltung->addNeighbour ( std::make_pair ( field[i], field[j] ) );
-				else if (field[i].x == field[j].x && field[i].y == field[j].y + 1)	faltung->addNeighbour ( std::make_pair ( field[i], field[j] ) );
-				else if (field[i].x == field[j].x && field[i].y == field[j].y - 1)	faltung->addNeighbour ( std::make_pair ( field[i], field[j] ) );
+				if (coords[i].x == coords[j].x + 1 && coords[i].y == coords[j].y)	faltung->addNeighbour ( std::make_pair ( coords[i], coords[j] ) );
+				else if (coords[i].x == coords[j].x - 1 && coords[i].y == coords[j].y)	faltung->addNeighbour ( std::make_pair ( coords[i], coords[j] ) );
+				else if (coords[i].x == coords[j].x && coords[i].y == coords[j].y + 1)	faltung->addNeighbour ( std::make_pair ( coords[i], coords[j] ) );
+				else if (coords[i].x == coords[j].x && coords[i].y == coords[j].y - 1)	faltung->addNeighbour ( std::make_pair ( coords[i], coords[j] ) );
+				else continue;
+				++numNeigh;
 			}
 		}
 	}
 
-	return (int)faltung->getNeighbours ( ).size ( );
+	return numNeigh;
 }
 
-int intersections ( std::shared_ptr<Faltung>& faltung )
+int intersections ( std::shared_ptr<Faltung>& faltung, const std::vector<Coord>& coords )
 {
 	int numOfIntersections = 0;
-	auto field = faltung->getCoordinates ( );
 
-	for (int i = 0; i < SEQUENCE.size ( ); ++i)
+	for (int i = 0; i < constant::SEQUENCE.size ( ); ++i)
 	{
-		for (int j = i + 1; j < SEQUENCE.size ( ); ++j)
+		for (int j = i + 1; j < constant::SEQUENCE.size ( ); ++j)
 		{
-			if (field[i].x == field[j].x && field[i].y == field[j].y)
+			if (coords[i].x == coords[j].x && coords[i].y == coords[j].y)
 			{
 				++numOfIntersections;
-				faltung->addIntersection ( field[i] );
+				faltung->addIntersection ( coords[i] );
 			}
 		}
 	}

@@ -36,11 +36,11 @@ int main ( int argc, char* argv[] )
 
 	// spawn population and randomize it
 	std::vector<std::shared_ptr<Faltung>> population{};
-	for (int i = 0; i < POPULATION; ++i)
+	for (int i = 0; i < constant::POPULATION; ++i)
 		population.emplace_back ( new Faltung ( true ) );
 
 	// initialize the Thread Pool
-	thread_pool threadPoolThreads ( THREAD_COUNT );
+	thread_pool threadPoolThreads ( constant::THREAD_COUNT );
 
 	double bestFitnessOverall = 0;
 	int generation = 0;
@@ -51,7 +51,7 @@ int main ( int argc, char* argv[] )
 	microseconds durationDraw ( microseconds ( 0 ) );
 	microseconds durationGeneration ( microseconds ( 0 ) );
 
-	while (generation < MAX_GENERATION)
+	while (generation < constant::MAX_GENERATION)
 	{
 		auto startGen = high_resolution_clock::now ( );
 
@@ -66,9 +66,9 @@ int main ( int argc, char* argv[] )
 
 /*****************************************  FITNESS  **********************************************************************************************/
 
-		auto vOut = split_vector ( population, POPS_PER_THREAD );
+		auto vOut = split_vector ( population, constant::POPS_PER_THREAD );
 
-		for (int i = 0; i < THREAD_COUNT; ++i)
+		for (int i = 0; i < constant::THREAD_COUNT; ++i)
 			threadPoolThreads.push_task ( threadFitness, std::ref ( vOut[i] ) );
 
 		population.clear ( );
@@ -82,7 +82,7 @@ int main ( int argc, char* argv[] )
 		durationFitness += duration_cast<microseconds>(stop - start);
 
 		// loop for sum, comulative, average and best fitness
-		for (int i = 0; i < POPULATION; ++i)
+		for (int i = 0; i < constant::POPULATION; ++i)
 		{
 			double fit = population[i]->getFitness ( );
 
@@ -101,7 +101,7 @@ int main ( int argc, char* argv[] )
 			cumulativeFitness.push_back ( fitnessSum );
 			fitnessSum += fit;
 		}
-		double averageFitness = fitnessSum / POPULATION;
+		double averageFitness = fitnessSum / constant::POPULATION;
 
 		// Format generation Data into a string vector
 		std::vector<std::string> data{ std::to_string ( generation ),
@@ -113,9 +113,9 @@ int main ( int argc, char* argv[] )
 		// select
 		start = high_resolution_clock::now ( );
 
-		vOut = split_vector ( population, POPS_PER_THREAD );
+		vOut = split_vector ( population, constant::POPS_PER_THREAD );
 
-		for (int i = 0; i < THREAD_COUNT; ++i)
+		for (int i = 0; i < constant::THREAD_COUNT; ++i)
 			threadPoolThreads.push_task ( proportionalSelection,
 				std::ref ( vOut[i] ),
 				std::ref ( population ),
@@ -150,8 +150,8 @@ int main ( int argc, char* argv[] )
 
 /*****************************************  Mutation  **********************************************************************************************/
 
-		for (int i = 0; i < THREAD_COUNT; ++i)
-			threadPoolThreads.push_task ( std::bind ( mutation, std::ref ( vOut[i] ), MUTATION_RATE ) );
+		for (int i = 0; i < constant::THREAD_COUNT; ++i)
+			threadPoolThreads.push_task ( std::bind ( mutation, std::ref ( vOut[i] ), constant::MUTATION_RATE ) );
 
 		population.clear ( );
 
@@ -178,19 +178,19 @@ int main ( int argc, char* argv[] )
 
 	delete output;
 	std::string filepath{ "TSV Output/" };
-	filepath += "logSEQ" + std::to_string ( SEQUENCE.size() ) + 
-		"Pops" + std::to_string ( POPULATION ) + 
+	filepath += "logSEQ" + std::to_string ( constant::SEQUENCE.size() ) +
+		"Pops" + std::to_string ( constant::POPULATION ) +
 		"Gen" + std::to_string ( generation ) + 
-		"Mut" + std::to_string ( MUTATION_RATE ) + ".tsv";
+		"Mut" + std::to_string ( constant::MUTATION_RATE ) + ".tsv";
 	tsv.output ( filepath );
 
 	std::cout 
 		<< "Fitness:      " << (double)durationFitness.count ( ) / generation << std::endl
 		<< "Selection:    " << (double)durationSelection.count ( ) / generation << std::endl
 		<< "Mutation:     " << (double)durationMutation.count ( ) / generation << std::endl
-		<< "Fitness pp:   " << (double)durationFitness.count ( ) / (POPULATION * generation) << std::endl
-		<< "Selection pp: " << (double)durationSelection.count ( ) / (POPULATION * generation) << std::endl
-		<< "Mutation pp:  " << (double)durationMutation.count ( ) / (POPULATION * generation) << std::endl
+		<< "Fitness pp:   " << (double)durationFitness.count ( ) / (constant::POPULATION * generation) << std::endl
+		<< "Selection pp: " << (double)durationSelection.count ( ) / (constant::POPULATION * generation) << std::endl
+		<< "Mutation pp:  " << (double)durationMutation.count ( ) / (constant::POPULATION * generation) << std::endl
 		<< "Draw:         " << (double)durationDraw.count ( ) / generation << std::endl
 		<< "Generation:   " << (double)durationGeneration.count ( ) / generation << std::endl
 		<< "Framerate:    " << 1000000.0f / ((double)durationGeneration.count ( ) / generation) << std::endl;
